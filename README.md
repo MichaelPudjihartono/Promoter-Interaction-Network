@@ -37,7 +37,7 @@ optional arguments:
   -e {MboI,DpnII,HindIII}, --enzyme {MboI,DpnII,HindIII}
                         The enzyme used to generate the fragments (e.g. HindIII)
   -hic HIC, --hic HIC   The filepath to a directory of hi-c interaction db files. Each hi-c db file should be named as 'cell-line_replicate' for the first two names (e.g. SK-
-                        MEL-5_GSM2827188_merged_nodups.db), following columns are required: chr1, fragment1, chr2, fragment2.
+                        MEL-5_GSM2827188_merged_nodups.db), the following columns are required: chr1, fragment1, chr2, fragment2.
   -o OUTPUT_DIR, --output-dir OUTPUT_DIR
                         Directory to write results.
   -nf, --no-figures     Disables the automatic generation of circos plots and DR score analysis. By default, these analyses and plots are generated.

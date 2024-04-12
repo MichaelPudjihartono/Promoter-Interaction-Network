@@ -29,7 +29,7 @@ def parse_args():
                         Default is all genes with available promoter information in the promoter reference file.''', default='All')
     parser.add_argument('-e', '--enzyme',required=True, choices=['MboI', 'DpnII', 'HindIII'], help='''The enzyme used to generate the fragments (e.g. HindIII)''')
     parser.add_argument('-hic', '--hic', required=True, help='''The filepath to a directory of hi-c interaction db files.
-                        Each hi-c db file should be named as 'cell-line_replicate' for the first two names (e.g. SK-MEL-5_GSM2827188_merged_nodups.db) and have the following columns: chr1, fragment1, chr2, fragment2.''')
+                        Each hi-c db file should be named as 'cell-line_replicate' for the first two names (e.g. SK-MEL-5_GSM2827188_merged_nodups.db), the following columns are required: chr1, fragment1, chr2, fragment2.''')
     parser.add_argument('-o', '--output-dir', default=os.path.join(os.getcwd(), 'results'), help='''Directory to write results.''')
     parser.add_argument('-nf', '--no-figures', action='store_true', help='Disables the automatic generation of circos plots and DR score analysis. By default, these analyses and plots are generated.')
     parser.add_argument('-p', '--num-processes', type=int, default=int(multiprocessing.cpu_count()/2), help='Number of CPUs to use (default: half the number of CPUs).')
@@ -40,7 +40,7 @@ def parse_args():
 class Logger:
     def __init__(self, output_dir):
         self.console = sys.stdout
-        self.log = open(os.path.join(output_dir, 'init_promoter_fragment_db.log'), 'w')
+        self.log = open(os.path.join(output_dir, 'PIN.log'), 'w')
 
         time = datetime.datetime.now()
         self.write((f'{time.strftime("%A")},'
@@ -376,7 +376,7 @@ def get_PIN_distance(row):
 
 def get_PIN_interaction_type(row):
     try:
-        if int(row['distance']) < 1000000: #The fact that we do int() here make it appropriate to use ValueError as exception since int(string) can't be assessed using numbers operator like '<' 
+        if int(row['distance']) < 1000000:
             return 'Cis'
         else:
             return 'Trans-intrachromosomal'
