@@ -24,6 +24,7 @@ PIN utilizes several Python packages for data manipulation, analysis, and visual
 - matplotlib and seaborn: For generating plots and visualizations of data.
 - scipy and statsmodels: For statistical analysis.
 - pyCircos: For creating Circos plots of PIN.
+- sqlalchemy: Provides a powerful SQL toolkit and ORM capabilities. 
 
 ## Basic Usage
 ```
@@ -79,22 +80,22 @@ _**Note:** The file names listed above are used as examples in the provided `.co
 PIN outputs a number of files and plots.
 
 ### Result files
-| File                | Description |
-|---------------------|-------------|
-| `PIN.txt`           | This file is the primary output of the PIN analysis. It contains mappings of all distal genomic fragments that physically interact with gene promoters. Each line represents a distinct interaction, detailing the involved genomic fragment and its gene. |
-| `PIN_gene_anno.txt` | This file augments the `PIN.txt` data by including additional genomic information about the anchor gene. Specifically, it provides the ```gene_start``` and ```gene_end``` coordinates along with the ```gene_strand``` orientation of the gene. |
-| `genomic_fragment_class.txt`| This file extends the information found in the `genomic_fragment_HindIII.bed` or `genomic_fragment_MboI.bed` files by adding an additional column that describes the `fragment_class` assigned to each genomic fragment based on the PIN analysis. The `fragment_class` is a critical output that categorizes each fragment according to its interaction properties defined during the analysis. |
-| `PIN.log`           | A log file generated during the software run. It records all operational messages, errors, and other diagnostic information, which can be crucial for troubleshooting and ensuring the software is functioning correctly. |
+| File                         | Description |
+|------------------------------|-------------|
+| `PIN.txt`                    | This file is the primary output of the PIN analysis. It contains mappings of all distal genomic fragments that physically interact with gene promoters. Each line represents a distinct interaction, detailing the involved genomic fragment and its gene. |
+| `PIN_gene_anno.txt`          | This file augments the `PIN.txt` data by including additional genomic information about the anchor gene. Specifically, it provides the ```gene_start``` and ```gene_end``` coordinates along with the ```gene_strand``` orientation of the gene. |
+| `genomic_fragment_class.txt` | This file extends the information found in the `genomic_fragment_HindIII.bed` or `genomic_fragment_MboI.bed` files by adding an additional column that describes the `fragment_class` assigned to each genomic fragment based on the PIN analysis. The `fragment_class` is a critical output that categorizes each fragment according to its interaction properties defined during the analysis. |
+| `PIN.log`                    | A log file generated during the software run. It records all operational messages, errors, and other diagnostic information, which can be crucial for troubleshooting and ensuring the software is functioning correctly. |
 
 
 
 ### Result Plots
-| File                                    | Description |
-|-----------------------------------------|-------------|
+| File                       | Description |
+|----------------------------|-------------|
 | `DR_score_figure1.png/pdf` | Violin plots displaying the distribution of depletion rank scores for each `fragment_class`. |
 | `figure2.png/pdf`          | Boxplot that compares the distribution of distances from non-coding PIFs (Promoter Interacting Fragments) and coding PIFs to the nearest exon.|
 | `DR_score_by_distance_group_figure3.png/pdf` | Violin plots showing the depletion rank score distribution for non-coding vs. coding PIFs across different distance groups. These plots are crucial for analyzing how distance from exons influences the depletion scores of PIFs. |
-| `Circos_PIN.png`                        | A Circos plot that summarizes the distribution of `fragment class` across the genome and the interactions anchored at gene promoters. For clarity, only Trans-inter and Trans-intra (≥ 50 Mb) interactions are shown. This plot provides a comprehensive overview of genomic interactions at a macroscopic level. |
+| `Circos_PIN.png`           | A Circos plot that summarizes the distribution of `fragment class` across the genome and the interactions anchored at gene promoters. For clarity, only Trans-inter and Trans-intra (≥ 50 Mb) interactions are shown. This plot provides a comprehensive overview of genomic interactions at a macroscopic level. |
 
 Each plot is available in PNG format for quick viewing and PDF format for high-quality output suitable for publication.
 
