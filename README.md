@@ -5,7 +5,7 @@
 
 ## Characterize distal regulatory elements through mapping of genome-wide physical interactions anchored to gene promoters
 
-### Installation
+## Installation
 Clone the repository using the following command:
 
 ```
@@ -78,7 +78,7 @@ _**Note:** The file names listed above are used as examples in the provided `.co
 ## Output
 PIN outputs a number of files and plots.
 
-#### Result files
+### Result files
 | File                | Description |
 |---------------------|-------------|
 | `PIN.txt`           | This file is the primary output of the PIN analysis. It contains mappings of all distal genomic fragments that physically interact with gene promoters. Each line represents a distinct interaction, detailing the involved genomic fragment and its gene. |
@@ -88,7 +88,7 @@ PIN outputs a number of files and plots.
 
 
 
-#### Result Plots
+### Result Plots
 | File                                    | Description |
 |-----------------------------------------|-------------|
 | `DR_score_figure1.png/pdf` | Violin plots displaying the distribution of depletion rank scores for each `fragment_class`. |
